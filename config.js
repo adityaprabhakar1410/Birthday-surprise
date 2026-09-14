@@ -177,7 +177,7 @@ const BIRTHDAY_CONFIG = {
 
   // Pre-loaded Wishes
   wishes: [
-    { name: "Your Annoying Sibling 🫶🏻", text: "Happy Birthday to my favourite little menace! 😂❤️ Hope your day is as fun, crazy and amazing as you are" },
+    { name: "Your Built-In Bestie 🫶🏻", text: "Happy Birthday to my favourite little menace! 😂❤️ Hope your day is as fun, crazy and amazing as you are" },
     { name: "Your Partner in Crime 😎", text: "Keep being the same crazy, funny and lovely Angel you are. Don't ever change… okay, maybe reduce the drama a little. 😂❤️" },
     { name: "Your Forever Annoying Sibling 🫂", text: "I'm really lucky to have a baby sister Iike you. We've had our fights, our stupid moments and a LOT of drama 😂, but I wouldn't trade you for anyone. Have the best birthday, Angel! ❤️" }
   ]
