@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday My Sister</title>
+  
+  <!-- SEO & Social Meta -->
+  <meta name="description" content="A magical, and aesthetic birthday surprise created with love.">
+  <meta name="theme-color" content="#ff758c">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- GSAP & Canvas Confetti Libraries -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Full-Screen Interactive Canvases -->
+  <canvas id="particle-canvas"></canvas>
+  <canvas id="fireworks-canvas"></canvas>
+
+  <!-- Scroll Progress Indicator -->
+  <div id="scroll-progress"></div>
+
+  <!-- Custom Sparkle Cursor Trail Container -->
+  <div id="cursor-trail-container"></div>
+
+  <!-- Navigation Bar -->
+  <header class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="#hero" class="nav-logo">
+        <i class="fa-solid fa-crown logo-icon"></i>
+        <span class="logo-text" id="nav-logo-text">Angel</span>
+      </a>
+
+      <nav class="nav-menu" id="nav-menu">
+        <a href="#about" class="nav-link">About Her</a>
+        <a href="#reasons" class="nav-link">Why Special</a>
+        <a href="#memories" class="nav-link">Memories</a>
+        <a href="#gallery" class="nav-link">Gallery</a>
+        <a href="#cake-section" class="nav-link">Make a Wish</a>
+        <a href="#letter-section" class="nav-link">Letter</a>
+        <a href="#gifts-section" class="nav-link">Surprises</a>
+      </nav>
+
+      <div class="nav-controls">
+        <!-- Dark/Light Mode Toggle -->
+        <button id="theme-toggle" class="icon-btn" title="Toggle Theme" aria-label="Toggle Theme">
+          <i class="fa-solid fa-moon theme-icon-dark"></i>
+          <i class="fa-solid fa-sun theme-icon-light"></i>
+        </button>
+
+        <!-- Music Controller Widget Pill -->
+        <button id="music-toggle" class="music-pill" title="Toggle Background Music" aria-label="Toggle Music">
+          <div class="music-bars">
+            <span class="bar bar1"></span>
+            <span class="bar bar2"></span>
+            <span class="bar bar3"></span>
+          </div>
+          <i class="fa-solid fa-music music-icon"></i>
+          <span class="music-status-text">Play Melody</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- SECTION 1: HERO & LANDING PAGE -->
+    <section id="hero" class="hero-section">
+      <div class="hero-content">
+        <div class="hero-badge">
+          <i class="fa-solid fa-sparkles"></i> Today is All About You <i class="fa-solid fa-sparkles"></i>
+        </div>
+
+        <h1 class="hero-title" id="hero-title-prefix">Happy Birthday ❤️</h1>
+        
+        <div class="hero-typing-container">
+          <span class="hero-typing-prefix">For My favourite little ❤️</span>
+          <span id="hero-typing-text" class="typing-highlight"></span>
+          <span class="typing-cursor">|</span>
+        </div>
+
+        <p class="hero-subtitle" id="hero-subtitle">
+          To the Most Beautiful Girl in the World ❤️
+        </p>
+
+        <!-- Countdown Timer -->
+        <div class="countdown-wrapper" id="countdown-wrapper">
+          <h3 class="countdown-label"><i class="fa-solid fa-hourglass-half"></i> Counting Down To Her Moment</h3>
+          <div class="countdown-timer">
+            <div class="count-box">
+              <span id="days" class="count-num">00</span>
+              <span class="count-unit">Days</span>
+            </div>
+            <div class="count-sep">:</div>
+            <div class="count-box">
+              <span id="hours" class="count-num">00</span>
+              <span class="count-unit">Hours</span>
+            </div>
+            <div class="count-sep">:</div>
+            <div class="count-box">
+              <span id="minutes" class="count-num">00</span>
+              <span class="count-unit">Mins</span>
+            </div>
+            <div class="count-sep">:</div>
+            <div class="count-box">
+              <span id="seconds" class="count-num">00</span>
+              <span class="count-unit">Secs</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Open Surprise CTA Button -->
+        <div class="hero-actions">
+          <button id="open-surprise-btn" class="btn btn-primary btn-glow">
+            <i class="fa-solid fa-gift"></i>
+            <span>Open Your Surprise</span>
+            <i class="fa-solid fa-heart heart-pulse"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Floating Scroll Down Indicator -->
+      <a href="#about" class="scroll-down-indicator" aria-label="Scroll Down">
+        <span>Explore The Magic</span>
+        <i class="fa-solid fa-chevron-down"></i>
+      </a>
+    </section>
+
+    <!-- SECTION 2: ABOUT HER -->
+    <section id="about" class="section-padding">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="section-tag"><i class="fa-solid fa-star"></i> The Birthday Queen</span>
+          <h2 class="section-title" id="about-title">About The Birthday Girl ✨</h2>
+          <p class="section-subtitle" id="about-subtitle">
+            A little crazy, a little dramatic, sometimes annoying… but honestly, that's what makes Angel, Angel. 😂❤️
+          </p>
+        </div>
+
+        <div class="about-grid" id="about-cards-grid">
+          <!-- Dynamically populated from config.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3: REASONS WHY SHE'S SPECIAL -->
+    <section id="reasons" class="section-padding glass-section">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="section-tag"><i class="fa-solid fa-heart"></i> Infinite Love</span>
+          <h2 class="section-title">Reasons Why She's Special 💖</h2>
+          <p class="section-subtitle">
+            Just a few of the million reasons why you are so deeply cherished.
+          </p>
+        </div>
+
+        <div class="reasons-container" id="reasons-grid">
+          <!-- Dynamically populated from config.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 4: OUR FAVORITE MEMORIES (TIMELINE & 3D CAROUSEL) -->
+    <section id="memories" class="section-padding">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="section-tag"><i class="fa-solid fa-bookmark"></i> Precious Moments</span>
+          <h2 class="section-title">Our Favorite Memories 📖</h2>
+          <p class="section-subtitle">
+            A beautiful timeline of chapters we've written together.
+          </p>
+          
+            <!-- Dynamically populated from config.js -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 5: PHOTO GALLERY WITH LIGHTBOX -->
+    <section id="gallery" class="section-padding glass-section">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="section-tag"><i class="fa-solid fa-camera"></i> Snapshot Moments</span>
+          <h2 class="section-title">Picture Perfect Gallery 📸</h2>
+          <p class="section-subtitle">
+            Capturing your unforgettable beauty, laughter, and radiance.
+          </p>
+        </div>
+
+        <div class="gallery-grid" id="gallery-container">
+          <!-- Dynamically populated from config.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 6: BIRTHDAY CAKE & CANDLE BLOWING STATION -->
+    <section id="cake-section" class="section-padding text-center">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag"><i class="fa-solid fa-wand-magic-sparkles"></i> Make A Wish</span>
+          <h2 class="section-title">Blow Out Your Birthday Candles 🎂</h2>
+          <p class="section-subtitle">
+            Close your eyes, make a sweet wish in your heart, and blow out the candles!
+          </p>
+        </div>
+
+        <div class="cake-container">
+          <!-- SVG Multi-Layered Birthday Cake -->
+          <div class="cake-wrapper" id="cake-wrapper">
+            <!-- SVG Candle Flames -->
+            <div class="candles-row" id="candles-row">
+              <div class="candle">
+                <div class="flame" id="flame-1"></div>
+                <div class="wick"></div>
+                <div class="candle-stick stick-pink"></div>
+              </div>
+              <div class="candle">
+                <div class="flame" id="flame-2"></div>
+                <div class="wick"></div>
+                <div class="candle-stick stick-gold"></div>
+              </div>
+              <div class="candle">
+                <div class="flame" id="flame-3"></div>
+                <div class="wick"></div>
+                <div class="candle-stick stick-purple"></div>
+              </div>
+            </div>
+
+            <!-- SVG Animated Cake Layers -->
+            <div class="cake-body">
+              <div class="cake-icing-top"></div>
+              <div class="cake-layer layer-top">
+                <div class="frosting-drips"></div>
+                <div class="cake-decorations">🌸 🍓 🌸</div>
+              </div>
+              <div class="cake-layer layer-middle">
+                <div class="cake-decorations">✨ ✨ ✨</div>
+              </div>
+              <div class="cake-layer layer-bottom">
+                <div class="cake-decorations">💖 💖 💖</div>
+              </div>
+              <div class="cake-plate"></div>
+            </div>
+          </div>
+
+          <!-- Cake Actions -->
+          <div class="cake-controls">
+            <button id="blow-candles-btn" class="btn btn-gold btn-pulse">
+              <i class="fa-solid fa-wind"></i>
+              <span>Blow The Candles 🎂</span>
+            </button>
+
+            <button id="rekindle-candles-btn" class="btn btn-outline" style="display: none;">
+              <i class="fa-solid fa-fire"></i>
+              <span>Light Candles Again</span>
+            </button>
+          </div>
+
+          <div id="wish-status-msg" class="wish-msg"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 7: INTERACTIVE LOVE LETTER ENVELOPE -->
+    <section id="letter-section" class="section-padding glass-section">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="section-tag"><i class="fa-solid fa-envelope-open-text"></i> From My Heart</span>
+          <h2 class="section-title">A Special Love Letter 💌</h2>
+          <p class="section-subtitle">
+            Click on the envelope to break the wax seal and reveal your handwritten note.
+          </p>
+        </div>
+
+        <div class="envelope-wrapper">
+          <div class="envelope" id="envelope">
+            <!-- Envelope Flap -->
+            <div class="envelope-flap" id="envelope-flap">
+              <div class="wax-seal" id="wax-seal">
+                <i class="fa-solid fa-heart"></i>
+              </div>
+            </div>
+            <!-- Envelope Front Pocket -->
+            <div class="envelope-pocket"></div>
+            <!-- Letter Card inside -->
+            <div class="letter-card" id="letter-card">
+              <div class="letter-inner">
+                <h3 class="letter-salutation" id="letter-salutation">Dearest Angel,</h3>
+                <div class="letter-body" id="letter-body">
+                  <!-- Dynamically populated from config.js -->
+                </div>
+                <div class="letter-footer">
+                  <p class="letter-closing" id="letter-closing">Forever & Always,</p>
+                  <p class="letter-signoff" id="letter-signoff">Your Biggest Admirer ❤️</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="envelope-hint">
+            <i class="fa-solid fa-hand-pointer"></i> Tap the seal to open letter
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- SECTION 8: INTERACTIVE GIFT BOXES -->
+    <section id="gifts-section" class="section-padding text-center">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag"><i class="fa-solid fa-boxes-packing"></i> Surprise Unboxing</span>
+          <h2 class="section-title">Interactive Gift Boxes 🎁</h2>
+          <p class="section-subtitle">
+            Pick a gift box to unwrap special redeemable birthday vouchers!
+          </p>
+        </div>
+
+        <div class="gifts-grid" id="gifts-container">
+          <!-- Dynamically populated from config.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 9: BIRTHDAY WISHES WALL -->
+    <section id="wishes-section" class="section-padding glass-section">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="section-tag"><i class="fa-solid fa-message"></i> Loving Messages</span>
+          <h2 class="section-title">Birthday Wishes Wall 💌</h2>
+          <p class="section-subtitle">
+            Warm wishes left for the birthday girl. Leave your own wish below!
+          </p>
+        </div>
+
+        <!-- Sticky Note Grid -->
+        <div class="wishes-grid" id="wishes-grid">
+          <!-- Dynamically populated from config.js -->
+        </div>
+
+        <!-- Add New Wish Form -->
+        <div class="add-wish-card glass-card">
+          <h3><i class="fa-solid fa-pen-fancy"></i> Leave A Birthday Wish</h3>
+          <form id="add-wish-form" class="wish-form">
+            <div class="form-group">
+              <input type="text" id="wish-sender" placeholder="Your Name or Nickname" required class="form-input">
+            </div>
+            <div class="form-group">
+              <textarea id="wish-text" placeholder="Write your heartwarming birthday message..." required rows="3" class="form-input"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">
+              <i class="fa-solid fa-paper-plane"></i> Send Wish
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 10: FUTURE DREAMS TOGETHER -->
+    <section id="dreams-section" class="section-padding">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="section-tag"><i class="fa-solid fa-compass"></i> Looking Forward</span>
+          <h2 class="section-title">Future Dreams Together 🌠</h2>
+          <p class="section-subtitle">
+            All the incredible adventures waiting for us in the future.
+          </p>
+        </div>
+
+        <div class="dreams-grid" id="dreams-container">
+          <!-- Dynamically populated from config.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 11: SURPRISE ENDING & GRAND FINALE -->
+    <section id="finale-section" class="section-padding finale-section text-center">
+      <div class="container">
+        <div class="finale-card glass-card">
+          <div class="sparkle-crown">
+            <i class="fa-solid fa-crown"></i>
+          </div>
+          <h2 class="finale-title" id="finale-title">Happy Birthday My Sister ❤️</h2>
+          <p class="finale-subtitle" id="finale-subtitle">
+            May your smile never fade, your heart always dance, and your dreams forever take flight.
+          </p>
+
+          <div class="finale-actions">
+            <button id="grand-fireworks-btn" class="btn btn-gold btn-glow">
+              <i class="fa-solid fa-rocket"></i>
+              <span>Launch Fireworks & Confetti 🎉</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FLOATING EMOJI REACTION DOCK -->
+  <div class="emoji-reaction-dock" id="emoji-dock">
+    <button class="emoji-btn" data-emoji="❤️" title="Send Love">❤️</button>
+    <button class="emoji-btn" data-emoji="💖" title="Sparkle Heart">💖</button>
+    <button class="emoji-btn" data-emoji="✨" title="Magic Sparkles">✨</button>
+    <button class="emoji-btn" data-emoji="🌸" title="Flower Blossom">🌸</button>
+    <button class="emoji-btn" data-emoji="🎂" title="Birthday Cake">🎂</button>
+    <button class="emoji-btn" data-emoji="👑" title="Princess Crown">👑</button>
+    <button class="emoji-btn" data-emoji="🥳" title="Party Time">🥳</button>
+  </div>
+
+  <!-- GALLERY LIGHTBOX MODAL -->
+  <div id="gallery-modal" class="modal" role="dialog" aria-hidden="true">
+    <div class="modal-content glass-card">
+      <button class="modal-close" id="modal-close-btn">&times;</button>
+      <img id="modal-img" src="" alt="Enlarged Gallery Photo">
+      <div class="modal-caption">
+        <h4 id="modal-title"></h4>
+        <p id="modal-desc"></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- GIFT REDEEM MODAL -->
+  <div id="gift-modal" class="modal" role="dialog" aria-hidden="true">
+    <div class="modal-content glass-card text-center">
+      <button class="modal-close" id="gift-modal-close-btn">&times;</button>
+      <div class="gift-modal-icon" id="gift-modal-icon">
+        <i class="fa-solid fa-gift"></i>
+      </div>
+      <span class="badge" id="gift-modal-badge">Special Voucher</span>
+      <h3 id="gift-modal-title">Coupon Unlocked!</h3>
+      <p id="gift-modal-desc"></p>
+      <div class="coupon-code-box">
+        <span>Voucher Code: </span>
+        <strong id="gift-modal-code">PRINCESS-PERFECT-2026</strong>
+      </div>
+      <button class="btn btn-primary" id="claim-coupon-btn">
+        <i class="fa-solid fa-check"></i> Redeem Wish
+      </button>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container text-center">
+      <p>Made with endless love & magic for <span class="highlight-name" id="footer-name">Angel</span> ❤️</p>
+      <p class="copyright">Happy Birthday 2026 • Forever & Always</p>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="config.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
